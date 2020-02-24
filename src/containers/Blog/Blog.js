@@ -7,6 +7,13 @@ import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
+    state = {
+        posts: [{
+            id: 1,
+            title: "First Post"
+        }]
+    }
+
     componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/posts')
         .then((response) => {
@@ -14,12 +21,15 @@ class Blog extends Component {
         });
     }
     render () {
+        const posts = this.state.posts.map(post => {
+            return (
+                <Post key={post.id} title={post.title} />
+            );
+        })
         return (
             <div>
                 <section className="Posts">
-                    <Post />
-                    <Post />
-                    <Post />
+                    {posts}
                 </section>
                 <section>
                     <FullPost />
