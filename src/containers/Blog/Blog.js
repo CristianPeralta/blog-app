@@ -32,7 +32,6 @@ class Blog extends Component {
         this.setState({
             selectedPostId: id,
         });
-        console.log('Post with id', id, 'was selected!');
     }
 
     render () {
