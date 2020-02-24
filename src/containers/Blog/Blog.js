@@ -26,10 +26,19 @@ class Blog extends Component {
             })
         });
     }
+
+    postSelectedHandler() {
+        console.log("A post was selected");
+    }
+
     render () {
         const posts = this.state.posts.map(post => {
             return (
-                <Post key={post.id} title={post.title} author={post.author}/>
+                <Post
+                    key={post.id}
+                    title={post.title}
+                    author={post.author}
+                    clicked={this.postSelectedHandler}/>
             );
         })
         return (
