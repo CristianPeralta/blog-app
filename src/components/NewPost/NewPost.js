@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './NewPost.css';
 
@@ -14,8 +15,12 @@ class NewPost extends Component {
             title: this.state.title,
             body: this.state.content,
             author: this.state.author,
+            userId: 1
         };
-        console.log("Building post data", data);
+        axios.post('https://jsonplaceholder.typicode.com/posts', data)
+        .then(response => {
+            console.log(response);
+        });
     }
 
     render () {
