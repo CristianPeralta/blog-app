@@ -7,12 +7,6 @@ import NewPost from './NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
-    state = {
-        posts: [],
-        selectedPostId: null,
-        error: false,
-    }
-
     componentDidMount() {
         axios.get('/posts')
         .then((response) => {
@@ -33,25 +27,7 @@ class Blog extends Component {
         });
     }
 
-    postSelectedHandler(id) {
-        this.setState({
-            selectedPostId: id,
-        });
-    }
-
     render () {
-        let posts = <p style={{textAlign: "center"}}>Something went wrong!</p>
-        if (!this.state.error) {
-            posts = this.state.posts.map(post => {
-                return (
-                    <Post
-                        key={post.id}
-                        title={post.title}
-                        author={post.author}
-                        clicked={() => this.postSelectedHandler(post.id)}/>
-                );
-            });
-        }
         return (
             <div className="Blog">
                 <header>
