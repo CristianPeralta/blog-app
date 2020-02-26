@@ -62,9 +62,6 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <section className="Posts">
-                    {posts}
-                </section>
             </div>
         );
     }
