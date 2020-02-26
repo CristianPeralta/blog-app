@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Posts extends Component {
     state = {
-        posts: [],
-        selectedPostId: null,
-        error: false,
+        posts: []
+    }
+
+    componentDidMount() {
+        axios.get('/posts')
+        .then((response) => {
+            const posts = response.data.slice(0, 4);
+            const updatedPosts = posts.map(post => {
+                return {
+                    ...post,
+                    author: 'John'
+                }
+            });
+            this.setState({
+                posts: updatedPosts,
+            });
+        })
+        .catch(error => {
+            console.log(error);
+            // this.setState({ error: true });
+        });
     }
 
     postSelectedHandler(id) {

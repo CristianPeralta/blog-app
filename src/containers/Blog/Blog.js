@@ -7,26 +7,6 @@ import NewPost from './NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
-    componentDidMount() {
-        axios.get('/posts')
-        .then((response) => {
-            const posts = response.data.slice(0, 4);
-            const updatedPosts = posts.map(post => {
-                return {
-                    ...post,
-                    author: 'John'
-                }
-            });
-            this.setState({
-                posts: updatedPosts,
-            });
-        })
-        .catch(error => {
-            console.log(error);
-            this.setState({ error: true });
-        });
-    }
-
     render () {
         return (
             <div className="Blog">
