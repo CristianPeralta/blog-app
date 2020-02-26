@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 class Posts extends Component {
-    constructor(props) {
-        super(props);
+    state = {
+        posts: [],
     }
     render() {
         return (
-            <div>
-                Posts
-            </div>
+            <section className="Posts">
+                {this.state.posts}
+            </section>
         );
     }
 }
