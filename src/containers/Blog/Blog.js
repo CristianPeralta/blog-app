@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../../axios';
-
-import Post from '../../components/Post/Post';
-import FullPost from './FullPost/FullPost';
-import NewPost from './NewPost/NewPost';
+import Posts from './Posts/Posts';
 import './Blog.css';
 
 class Blog extends Component {
@@ -18,6 +14,7 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
+                <Posts />
             </div>
         );
     }
