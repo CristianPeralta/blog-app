@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import axios from '../../../axios';
 
 import './Posts.css';
 import Post from '../../../components/Post/Post';
+import FullPost from '../FullPost/FullPost';
 
 class Posts extends Component {
     state = {
@@ -45,9 +47,12 @@ class Posts extends Component {
             });
         }
         return (
-            <section className="Posts">
-                {posts}
-            </section>
+            <div>
+                <section className="Posts">
+                    {posts}
+                </section>
+                <Route path="/:id" exact component={FullPost} />
+            </div>
         );
     }
 }
