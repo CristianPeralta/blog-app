@@ -23,7 +23,7 @@ class NewPost extends Component {
         .then(response => {
             console.log(response);
             // this.setState({ submmited: true });
-            this.props.history.push('/posts');
+            this.props.history.replace('/posts');
         });
     }
 
