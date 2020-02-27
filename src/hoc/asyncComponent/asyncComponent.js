@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const asyncComponent = () => {
-    return <div>
-        async component
-    </div>;
+    return class extends Component {
+        render() {
+            return <div>COMPONENT</div>
+        }
+    }
 }
 
 export default asyncComponent;
