@@ -13,7 +13,8 @@ const asyncComponent = (importComponent) => {
                 });
         }
         render() {
-            return this.state.component
+            const C = this.state.component;
+            return C ? <C {...this.props} /> : null;
         }
     }
 }
