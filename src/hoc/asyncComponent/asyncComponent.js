@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
-const asyncComponent = () => {
+const asyncComponent = (importComponent) => {
     return class extends Component {
+        state = {
+            component: null
+        }
         render() {
-            return <div>COMPONENT</div>
+            return this.state.component
         }
     }
 }
