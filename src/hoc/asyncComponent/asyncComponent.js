@@ -5,6 +5,13 @@ const asyncComponent = (importComponent) => {
         state = {
             component: null
         }
+
+        componentWillMount() {
+            importComponent()
+                .then(cmp => {
+                    this.setState({ component: cmp.default });
+                });
+        }
         render() {
             return this.state.component
         }
